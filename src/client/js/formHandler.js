@@ -14,8 +14,13 @@ export function handleSubmit(event) {
             txt: formText
         })
     })
-    .then(res => {
-        console.log(res)
+    .then(res => res.json())
+    .then(data => {
+        let ans = ""
+        console.log(data.language_list)
+        for(let l of data.language_list)
+            ans += l.name + "  "
+        document.getElementById("results").innerHTML = ans
     })
     .catch((error) => {
         console.error('Error:', error);
