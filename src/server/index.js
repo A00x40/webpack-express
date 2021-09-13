@@ -20,19 +20,8 @@ app.get('/', function (req, res) {
 })
 
 app.post('/api/test', async function (req, res) {
-
-    const data = new FormData()
-    data.append('key', app_key)
-    data.append("txt", req.body.txt)
-    
-    const requestOptions = {
-        method: 'POST',
-        body: data,
-        redirect: 'follow'
-    };
-
-    var lang = await fetch("https://api.meaningcloud.com/lang-4.0/identification", requestOptions)
-    const json = await lang.json()
+    var sentiments = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${app_key}&of=json&url=${req.body.txt}&lang=en`)
+    const json = await sentiments.json()
     res.send(json)
 })
 

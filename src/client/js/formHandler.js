@@ -15,12 +15,8 @@ export function handleSubmit(event) {
             })
         })
         .then(res => res.json())
-        .then(data => {
-            let ans = ""
-            console.log(data.language_list)
-            for(let l of data.language_list)
-                ans += l.name + "  "
-            document.getElementById("results").innerHTML = ans
+        .then(data => {           
+            document.getElementById("results").innerHTML = data.status.msg
         })
         .catch((error) => {
             console.error('Error:', error);
