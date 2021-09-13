@@ -12,4 +12,4 @@ Fork this repo, then clone your forked repo down to your computer:
 
 - ```npm install```
 - ```npm start``` to start the app
-- this app runs on localhost:8080, but you can of course edit that in index.js
+- this app backend runs on localhost:3000, but you can of course edit that in index.js

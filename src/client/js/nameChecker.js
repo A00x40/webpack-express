@@ -1,7 +1,7 @@
 export function checkForName(inputText) {
     console.log("::: Running checkForName :::", inputText)
     if(inputText === "") {
-        alert("Welcome, Captain!")
+        alert("Empty Field")
         return false
     }
 

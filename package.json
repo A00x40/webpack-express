@@ -1,9 +1,12 @@
 {
   "name": "example-project",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "nodemon src/server/index.js",
     "serve": "webpack-dev-server --config webpack.dev.cjs --open",
     "start": "node src/server/index.js",
@@ -28,6 +31,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.1.1",
     "mini-css-extract-plugin": "^2.3.0",
     "node-sass": "^6.0.1",
     "nodemon": "^2.0.12",
