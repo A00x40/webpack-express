@@ -5,9 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server/index.js",
-    "serve": "webpack-dev-server --config webpack.dev.js --open",
+    "serve": "webpack-dev-server --config webpack.dev.cjs --open",
     "start": "node src/server/index.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.cjs"
   },
   "type": "module",
   "keywords": [],
