@@ -7,15 +7,18 @@ export function handleSubmit(event) {
 
         console.log("::: Form Submitted :::")
 
-        fetch('/api/test',{    
+        fetch('http://localhost:3000/test',{    
             method: 'POST',
-            headers: { "Content-Type": "application/json" },
+            headers: { 
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({
                 txt: formText
             })
         })
         .then(res => res.json())
-        .then(data => {     
+        .then(data => {   
+            console.log(data)  
             let { subjectivity, agreement, polarity } = data   
             document.getElementById("results").innerHTML 
             = "Subjectivity: " + subjectivity + "  - Agreement: " + agreement + "  - Polarity: " + polarity

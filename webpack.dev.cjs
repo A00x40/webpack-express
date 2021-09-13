@@ -14,10 +14,7 @@ module.exports = {
     devServer: {
         client: {
             logging: 'info',
-        },
-        proxy: {
-            '/api': 'http://localhost:3000',
-        },
+        }
     },
     module: {
         rules: [

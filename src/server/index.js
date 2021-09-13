@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import fetch from 'node-fetch'
-import { default as FormData } from "form-data"
+import cors from 'cors'
 
 dotenv.config()
 
@@ -14,12 +14,19 @@ app.use(express.json({
 app.use(express.urlencoded({
   extended: true
 }));
+app.use(express.static('dist'))
+
+var corsOptions = {
+  origin: 'http://localhost:8080',
+  optionsSuccessStatus: 200 
+}
+app.use(cors(corsOptions))
 
 app.get('/', function (req, res) {
-    res.sendFile('dist/index.html', { root: __dirname + '/..' })
+    res.sendFile('dist/index.html')
 })
 
-app.post('/api/test', async function (req, res) {
+app.post('/test', async function (req, res) {
     var sentiments = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${app_key}&of=json&txt=${req.body.txt}&lang=en`)
     const json = await sentiments.json()
     res.send(json)
@@ -27,7 +34,7 @@ app.post('/api/test', async function (req, res) {
 
 // designates what port the app will listen to for incoming requests
 app.listen(3000, function () {
-    console.log('Example app listening on port 3000!')
+    console.log('App listening on port 3000!')
 })
 
 
