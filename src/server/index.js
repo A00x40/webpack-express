@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 })
 
 app.post('/api/test', async function (req, res) {
-    var sentiments = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${app_key}&of=json&url=${req.body.txt}&lang=en`)
+    var sentiments = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${app_key}&of=json&txt=${req.body.txt}&lang=en`)
     const json = await sentiments.json()
     res.send(json)
 })

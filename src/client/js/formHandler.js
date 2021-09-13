@@ -15,8 +15,10 @@ export function handleSubmit(event) {
             })
         })
         .then(res => res.json())
-        .then(data => {           
-            document.getElementById("results").innerHTML = data.status.msg
+        .then(data => {     
+            let { subjectivity, agreement, polarity } = data   
+            document.getElementById("results").innerHTML 
+            = "Subjectivity: " + subjectivity + "  - Agreement: " + agreement + "  - Polarity: " + polarity
         })
         .catch((error) => {
             console.error('Error:', error);
