@@ -18,10 +18,13 @@ export function handleSubmit(event) {
         })
         .then(res => res.json())
         .then(data => {   
-            console.log(data)  
-            let { subjectivity, agreement, polarity } = data   
+             
+            let {agreement, subjectivity, irony} = data   
+            console.log(data) 
             document.getElementById("results").innerHTML 
-            = "Subjectivity: " + subjectivity + "  - Agreement: " + agreement + "  - Polarity: " + polarity
+            = `Subjectivity: ${subjectivity}  `
+            + ` -   Agreement: ${agreement}  ` 
+            + ` -   Irony: ${irony}  ` 
         })
         .catch((error) => {
             console.error('Error:', error);
